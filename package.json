@@ -1,0 +1,17 @@
+{
+  "name": "financial-wellness-platform",
+  "version": "1.0.0",
+  "description": "Modern financial wellness and consulting platform",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Build placeholder for future Next.js migration'"
+  },
+  "keywords": ["finance", "consulting", "wealth", "financial-health"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

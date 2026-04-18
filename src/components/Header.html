@@ -1,0 +1,50 @@
+<!-- Header Navigation Component -->
+<header id="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <img src="/src/assets/logo.jpeg" alt="GoldenLeaf Financials logo" class="logo-icon" />
+        <span>GoldenLeaf Financials</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="navList" class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/products.html">Products</a></li>
+        <li><a href="/team.html">Team</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html" class="nav-cta btn btn-sm btn-secondary">Get Started</a></li>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', function () {
+    this.classList.toggle('active');
+    document.getElementById('navList').classList.toggle('active');
+  });
+
+  // Close menu when link is clicked
+  document.querySelectorAll('.nav-list a').forEach((link) => {
+    link.addEventListener('click', () => {
+      document.getElementById('menuToggle').classList.remove('active');
+      document.getElementById('navList').classList.remove('active');
+    });
+  });
+
+  // Set active nav link
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-list a').forEach((link) => {
+    if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === '/')) {
+      link.classList.add('active');
+    }
+  });
+</script>

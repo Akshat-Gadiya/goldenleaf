@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet the expert financial advisors at GoldenLeaf Financials committed to your success." />
+  <title>Our Team - GoldenLeaf Financials</title>
+
+  <link rel="stylesheet" href="/src/styles/variables.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/layout.css" />
+  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+  
+  <style>
+    .team-member-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
+    .team-member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-member-photo {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+
+    .team-member-info {
+      padding: var(--space-2xl);
+    }
+
+    .team-member-name {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      margin: 0;
+      color: var(--color-primary);
+    }
+
+    .team-member-title {
+      font-size: var(--font-size-base);
+      color: var(--color-secondary);
+      font-weight: var(--font-weight-semibold);
+      margin: var(--space-sm) 0 var(--space-lg) 0;
+    }
+
+    .team-member-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .team-member-buttons {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .team-member-button {
+      flex: 1;
+      min-width: 80px;
+      padding: var(--space-md) var(--space-lg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-light);
+      color: var(--color-secondary);
+      text-decoration: none;
+      text-align: center;
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .team-member-button:hover {
+      background-color: var(--color-secondary);
+      color: white;
+      border-color: var(--color-secondary);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-2xl);
+      margin: var(--space-3xl) 0;
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-component"></div>
+
+  <!-- Page Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Meet Our Team</h1>
+        <p>Expert financial advisors committed to your success</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--space-3xl);">
+        <h2 style="margin-bottom: var(--space-lg);">Dedicated to Your Financial Success</h2>
+        <p style="color: var(--color-text-light); font-size: var(--font-size-base);">
+          Our team brings decades of combined experience in financial planning, wealth management, and strategic advisory services. We're here to guide you toward your financial goals.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Team Member 1: Anita Gadiya -->
+        <div class="team-member-card">
+          <div class="team-member-photo">👩‍💼</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Anita Gadiya</h3>
+            <p class="team-member-title">CEO & Founder</p>
+            <p class="team-member-description">
+              Anita brings extensive expertise in financial management and wealth building strategies. With a passion for empowering individuals to achieve financial independence, she leads GoldenLeaf Financials with a commitment to transparency, results-driven solutions, and personalized guidance that transforms financial futures.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-512-784-0626" class="team-member-button">📞 Call</a>
+              <a href="mailto:gadiyaneeta@gmail.com" class="team-member-button">✉️ Email</a>
+              <a href="#" class="team-member-button">🔗 LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2: Abhishek Shrivastava -->
+        <div class="team-member-card">
+          <div class="team-member-photo">👨‍💼</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Abhishek Shrivastava</h3>
+            <p class="team-member-title">Advisory Board Member</p>
+            <p class="team-member-description">
+              Abhishek is a visionary leader and entrepreneur with a proven track record in building and scaling financial services organizations. He specializes in developing high-performing teams, driving business growth, and empowering professionals to deliver exceptional financial guidance and client success.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-800-123-4567" class="team-member-button">📞 Call</a>
+              <a href="mailto:abhishek@goldenleaf.app" class="team-member-button">✉️ Email</a>
+              <a href="#" class="team-member-button">🔗 LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 3: Amareesh Agrawal -->
+        <div class="team-member-card">
+          <div class="team-member-photo">👨‍⚖️</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Amareesh Agrawal</h3>
+            <p class="team-member-title">Regional Managing Director</p>
+            <p class="team-member-description">
+              Amareesh brings extensive expertise in financial planning and wealth management, helping individuals and families achieve long-term financial freedom. His work focuses on strategic investment, retirement planning, and protection solutions to build secure and lasting financial futures.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-800-123-4567" class="team-member-button">📞 Call</a>
+              <a href="mailto:amareesh@goldenleaf.app" class="team-member-button">✉️ Email</a>
+              <a href="#" class="team-member-button">🔗 LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="section" style="background-color: var(--color-bg-light);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Our Team is Different</h2>
+        <p>We combine expertise, integrity, and personalized service</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🎓 Expertise</h3>
+          <p style="color: var(--color-text-light);">Decades of combined experience in financial planning, investment management, and wealth building strategies.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🤝 Integrity</h3>
+          <p style="color: var(--color-text-light);">We prioritize your interests above all else, providing transparent advice and honest guidance every step of the way.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">💡 Innovation</h3>
+          <p style="color: var(--color-text-light);">We stay ahead of market trends and leverage the latest tools and strategies to optimize your financial outcomes.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🎯 Results-Focused</h3>
+          <p style="color: var(--color-text-light);">Every recommendation is tied to your specific goals and financial situation, ensuring maximum relevance and impact.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🌟 Client-Centric</h3>
+          <p style="color: var(--color-text-light);">Your success is our success. We're committed to your long-term financial wellbeing and growth.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">📈 Proactive</h3>
+          <p style="color: var(--color-text-light);">We anticipate changes in your life and market conditions, adjusting strategies to keep you on track.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section">
+    <div class="container">
+      <h2 style="color: white;">Ready to Work With Our Team?</h2>
+      <p>Schedule a consultation with one of our expert advisors today.</p>
+      <a href="/contact.html" class="btn btn-primary btn-lg" style="margin-top: var(--space-lg);">Schedule Free Consultation</a>
+    </div>
+  </section>
+
+  <div id="footer-component"></div>
+
+  <script type="module">
+    import { SITE_CONFIG } from '/src/data/constants.js';
+
+    // Load Header
+    fetch('/src/components/Header.html')
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById('header-component').innerHTML = html;
+
+        // Set active nav link
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-list a').forEach((link) => {
+          if (link.getAttribute('href') === currentPath || (currentPath === '/team.html' && link.getAttribute('href') === '/team.html')) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    // Load Footer
+    fetch('/src/components/Footer.html')
+      .then((res) => res.text())
+      .then((html) => (document.getElementById('footer-component').innerHTML = html));
+  </script>
+</body>
+</html>
