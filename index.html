@@ -6,7 +6,7 @@
   <meta name="description" content="Protect your finances and build your future. Financial wellness consulting for individuals and small businesses." />
   <title>GoldenLeaf Financials - Protect Your Finances. Build Your Future.</title>
 
-  <!-- CSS Files (Fixed relative paths) -->
+  <!-- CSS Files (Relative paths) -->
   <link rel="stylesheet" href="src/styles/variables.css" />
   <link rel="stylesheet" href="src/styles/components.css" />
   <link rel="stylesheet" href="src/styles/layout.css" />
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Favicon (Fixed relative path) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
 </head>
 <body>
@@ -37,7 +37,7 @@
     </div>
   </section>
 
-  <!-- Dual Path Section - CRITICAL UX -->
+  <!-- Dual Path Section -->
   <section class="section" id="dual-paths">
     <div class="container">
       <div class="section-header">
@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- Process Section - 4 Step Journey -->
+  <!-- Process Section -->
   <section class="section" style="background-color: var(--color-bg-light);">
     <div class="container">
       <div class="section-header">
@@ -128,7 +128,6 @@
       </div>
 
       <div class="services-grid">
-        <!-- Service 1 -->
         <div class="service-card">
           <div class="service-icon">📊</div>
           <h3>Financial Health Optimization</h3>
@@ -143,7 +142,6 @@
           </div>
         </div>
 
-        <!-- Service 2 -->
         <div class="service-card">
           <div class="service-icon">💰</div>
           <h3>Business & Personal Funding</h3>
@@ -158,7 +156,6 @@
           </div>
         </div>
 
-        <!-- Service 3 -->
         <div class="service-card">
           <div class="service-icon">🚀</div>
           <h3>Long-Term Wealth Planning</h3>
@@ -347,11 +344,11 @@
   <!-- Footer Component -->
   <div id="footer-component"></div>
 
-  <!-- JavaScript (Fixed relative paths for script & component fetches) -->
+  <!-- JavaScript -->
   <script type="module">
     import { FormHandler, submitLead, Storage, Analytics, Validators } from './src/utils/helpers.js';
 
-    // Load components
+    // Load header and footer dynamically
     fetch('src/components/Header.html')
       .then((res) => res.text())
       .then((html) => {
@@ -377,17 +374,14 @@
         form.setLoading(true);
 
         try {
-          // Save to localStorage (for demo)
           const leads = Storage.get('leads') || [];
           leads.push(data);
           Storage.set('leads', leads);
 
-          // Track event
           Analytics.trackEvent('lead_submitted', {
             goal: data.goal || 'not-specified',
           });
 
-          // Show success
           const message = document.getElementById('formMessage');
           message.innerHTML = `
             <div class="success-message">
