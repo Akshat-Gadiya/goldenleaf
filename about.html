@@ -124,8 +124,11 @@
   <!-- Relative JavaScript Component Loader & Active Link Script -->
   <script type="module">
     // Load Header
-    fetch('src/components/Header.html')
-      .then((res) => res.text())
+    fetch('./src/components/Header.html')
+      .then((res) => {
+        if (!res.ok) throw new Error(`Header load failed: ${res.status}`);
+        return res.text();
+      })
       .then((html) => {
         document.getElementById('header-component').innerHTML = html;
 
@@ -136,12 +139,17 @@
             link.classList.add('active');
           }
         });
-      });
+      })
+      .catch((err) => console.error(err));
 
     // Load Footer
-    fetch('src/components/Footer.html')
-      .then((res) => res.text())
-      .then((html) => (document.getElementById('footer-component').innerHTML = html));
+    fetch('./src/components/Footer.html')
+      .then((res) => {
+        if (!res.ok) throw new Error(`Footer load failed: ${res.status}`);
+        return res.text();
+      })
+      .then((html) => {
+        document.getElementById('footer-component').innerHTML = html;
+      })
+      .catch((err) => console.error(err));
   </script>
-</body>
-</html>
