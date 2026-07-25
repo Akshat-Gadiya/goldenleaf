@@ -6,18 +6,18 @@
   <meta name="description" content="Protect your finances and build your future. Financial wellness consulting for individuals and small businesses." />
   <title>GoldenLeaf Financials - Protect Your Finances. Build Your Future.</title>
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="/src/styles/variables.css" />
-  <link rel="stylesheet" href="/src/styles/components.css" />
-  <link rel="stylesheet" href="/src/styles/layout.css" />
-  <link rel="stylesheet" href="/src/styles/sections.css" />
+  <!-- CSS Files (Fixed relative paths) -->
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/layout.css" />
+  <link rel="stylesheet" href="src/styles/sections.css" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+  <!-- Favicon (Fixed relative path) -->
+  <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
 </head>
 <body>
   <!-- Header Component -->
@@ -56,7 +56,7 @@
             <li>Plan for long-term wealth growth</li>
             <li>Tax optimization strategies</li>
           </ul>
-          <a href="/services.html" class="btn btn-secondary">Optimize My Wealth</a>
+          <a href="services.html" class="btn btn-secondary">Optimize My Wealth</a>
         </div>
 
         <!-- Improve Path -->
@@ -69,7 +69,7 @@
             <li>Financial health assessment</li>
             <li>Personalized improvement plan</li>
           </ul>
-          <a href="/services.html" class="btn btn-primary">Start Improving Today</a>
+          <a href="services.html" class="btn btn-primary">Start Improving Today</a>
         </div>
       </div>
     </div>
@@ -175,7 +175,7 @@
       </div>
 
       <div style="text-align: center; margin-top: var(--space-2xl);">
-        <a href="/services.html" class="btn btn-primary btn-lg">View All Services</a>
+        <a href="services.html" class="btn btn-primary btn-lg">View All Services</a>
       </div>
     </div>
   </section>
@@ -217,7 +217,7 @@
       <p>The best time to fix or protect your finances was yesterday.<br />The next best time is today.</p>
       <div class="cta-buttons">
         <a href="#contact-section" class="btn btn-secondary btn-lg">Get Your Game Plan</a>
-        <a href="/contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">Schedule a Call</a>
+        <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">Schedule a Call</a>
       </div>
     </div>
   </section>
@@ -347,18 +347,18 @@
   <!-- Footer Component -->
   <div id="footer-component"></div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript (Fixed relative paths for script & component fetches) -->
   <script type="module">
-    import { FormHandler, submitLead, Storage, Analytics, Validators } from '/src/utils/helpers.js';
+    import { FormHandler, submitLead, Storage, Analytics, Validators } from './src/utils/helpers.js';
 
     // Load components
-    fetch('/src/components/Header.html')
+    fetch('src/components/Header.html')
       .then((res) => res.text())
       .then((html) => {
         document.getElementById('header-component').innerHTML = html;
       });
 
-    fetch('/src/components/Footer.html')
+    fetch('src/components/Footer.html')
       .then((res) => res.text())
       .then((html) => {
         document.getElementById('footer-component').innerHTML = html;
