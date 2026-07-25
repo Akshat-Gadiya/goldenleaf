@@ -6,11 +6,12 @@
   <meta name="description" content="Meet the expert financial advisors at GoldenLeaf Financials committed to your success." />
   <title>Our Team - GoldenLeaf Financials</title>
 
-  <link rel="stylesheet" href="/src/styles/variables.css" />
-  <link rel="stylesheet" href="/src/styles/components.css" />
-  <link rel="stylesheet" href="/src/styles/layout.css" />
-  <link rel="stylesheet" href="/src/styles/sections.css" />
-  <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+  <!-- Relative CSS & Favicon Paths -->
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/layout.css" />
+  <link rel="stylesheet" href="src/styles/sections.css" />
+  <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
   
   <style>
     .team-member-card {
@@ -228,32 +229,33 @@
     <div class="container">
       <h2 style="color: white;">Ready to Work With Our Team?</h2>
       <p>Schedule a consultation with one of our expert advisors today.</p>
-      <a href="/contact.html" class="btn btn-primary btn-lg" style="margin-top: var(--space-lg);">Schedule Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary btn-lg" style="margin-top: var(--space-lg);">Schedule Free Consultation</a>
     </div>
   </section>
 
   <div id="footer-component"></div>
 
+  <!-- Relative JavaScript Imports & Fetches -->
   <script type="module">
-    import { SITE_CONFIG } from '/src/data/constants.js';
+    import { SITE_CONFIG } from './src/data/constants.js';
 
     // Load Header
-    fetch('/src/components/Header.html')
+    fetch('src/components/Header.html')
       .then((res) => res.text())
       .then((html) => {
         document.getElementById('header-component').innerHTML = html;
 
-        // Set active nav link
-        const currentPath = window.location.pathname;
+        // Set active nav link (compatible with local & GitHub Pages)
+        const currentFilename = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-list a').forEach((link) => {
-          if (link.getAttribute('href') === currentPath || (currentPath === '/team.html' && link.getAttribute('href') === '/team.html')) {
+          if (link.getAttribute('href') === currentFilename) {
             link.classList.add('active');
           }
         });
       });
 
     // Load Footer
-    fetch('/src/components/Footer.html')
+    fetch('src/components/Footer.html')
       .then((res) => res.text())
       .then((html) => (document.getElementById('footer-component').innerHTML = html));
   </script>
