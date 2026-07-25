@@ -6,11 +6,12 @@
   <meta name="description" content="Learn about GoldenLeaf Financials LLC, our mission, values, and licensed advisory approach." />
   <title>About Us - GoldenLeaf Financials</title>
 
-  <link rel="stylesheet" href="/src/styles/variables.css" />
-  <link rel="stylesheet" href="/src/styles/components.css" />
-  <link rel="stylesheet" href="/src/styles/layout.css" />
-  <link rel="stylesheet" href="/src/styles/sections.css" />
-  <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+  <!-- Relative CSS & Favicon Paths -->
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/layout.css" />
+  <link rel="stylesheet" href="src/styles/sections.css" />
+  <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
 </head>
 <body>
   <div id="header-component"></div>
@@ -114,19 +115,31 @@
     <div class="container">
       <h2 style="color: white;">Ready to take the next step?</h2>
       <p>Connect with our team and start your financial plan today.</p>
-      <a href="/contact.html" class="btn btn-secondary btn-lg">Book Your Consultation</a>
+      <a href="contact.html" class="btn btn-secondary btn-lg">Book Your Consultation</a>
     </div>
   </section>
 
   <div id="footer-component"></div>
 
+  <!-- Relative JavaScript Component Loader & Active Link Script -->
   <script type="module">
-    // Load components
-    fetch('/src/components/Header.html')
+    // Load Header
+    fetch('src/components/Header.html')
       .then((res) => res.text())
-      .then((html) => (document.getElementById('header-component').innerHTML = html));
+      .then((html) => {
+        document.getElementById('header-component').innerHTML = html;
 
-    fetch('/src/components/Footer.html')
+        // Set active nav link
+        const currentFilename = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-list a').forEach((link) => {
+          if (link.getAttribute('href') === currentFilename) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    // Load Footer
+    fetch('src/components/Footer.html')
       .then((res) => res.text())
       .then((html) => (document.getElementById('footer-component').innerHTML = html));
   </script>
