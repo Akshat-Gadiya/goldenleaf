@@ -219,19 +219,20 @@
 }
 
 .process-step {
-  background-color: var(--color-bg-light);
-  border: 2px solid var(--color-border);
+  background: linear-gradient(135deg, #ffffff 0%, #f7fff9 45%, #eefcf3 100%);
+  border: 2px solid rgba(16, 185, 129, 0.22);
   border-radius: var(--radius-xl);
   padding: var(--space-2xl);
   text-align: center;
   position: relative;
   z-index: 1;
+  box-shadow: 0 10px 24px rgba(16, 185, 129, 0.12);
   transition: all var(--transition-base);
 }
 
 .process-step:hover {
   border-color: var(--color-secondary);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 30px rgba(16, 185, 129, 0.2);
   transform: translateY(-4px);
 }
 
