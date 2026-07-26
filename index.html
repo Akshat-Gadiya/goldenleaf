@@ -18,20 +18,217 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+
+    .responsive-2col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl);
+      margin: var(--space-3xl) 0;
+    }
+
+    .team-member-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
+    .team-member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-member-photo {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+
+    .team-member-info {
+      padding: var(--space-2xl);
+    }
+
+    .team-member-name {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      margin: 0;
+      color: var(--color-primary);
+    }
+
+    .team-member-title {
+      font-size: var(--font-size-base);
+      color: var(--color-secondary);
+      font-weight: var(--font-weight-semibold);
+      margin: var(--space-sm) 0 var(--space-lg) 0;
+    }
+
+    .team-member-description {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .team-member-buttons {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .team-member-button {
+      flex: 1;
+      min-width: 80px;
+      padding: var(--space-md) var(--space-lg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-light);
+      color: var(--color-secondary);
+      text-decoration: none;
+      text-align: center;
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .team-member-button:hover {
+      background-color: var(--color-secondary);
+      color: white;
+      border-color: var(--color-secondary);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-2xl);
+      margin: var(--space-3xl) 0;
+    }
+
+    .contact-page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-xl);
+      justify-items: center;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-panel,
+    .contact-form-container {
+      width: 100%;
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-info-panel {
+      display: grid;
+      gap: var(--space-lg);
+      flex: 1;
+    }
+
+    .contact-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .contact-hero .hero-chips {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .hero-chip {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: var(--font-size-sm);
+      text-align: center;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: var(--space-2xs);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 980px) {
+      .responsive-2col-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid,
+      .contact-form .form-row,
+      .contact-hero .hero-chips {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header Component -->
   <div id="header-component"></div>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
         <h1>Protect Your Finances.<br />Build Your Future.</h1>
         <p>Whether your finances are strong or need work, we help you take the next step.</p>
         <div class="hero-cta">
           <a href="#dual-paths" class="btn btn-primary btn-lg">Start Your Journey</a>
-          <a href="contact.html" class="btn btn-outline btn-lg">Schedule Free Consultation</a>
+          <a href="#contact" class="btn btn-outline btn-lg">Schedule Free Consultation</a>
         </div>
       </div>
     </div>
@@ -56,7 +253,7 @@
             <li>Plan for long-term wealth growth</li>
             <li>Tax optimization strategies</li>
           </ul>
-          <a href="services.html" class="btn btn-secondary">Optimize My Wealth</a>
+          <a href="#services" class="btn btn-secondary">Optimize My Wealth</a>
         </div>
 
         <!-- Improve Path -->
@@ -69,7 +266,7 @@
             <li>Financial health assessment</li>
             <li>Personalized improvement plan</li>
           </ul>
-          <a href="services.html" class="btn btn-primary">Start Improving Today</a>
+          <a href="#services" class="btn btn-primary">Start Improving Today</a>
         </div>
       </div>
     </div>
@@ -119,66 +316,284 @@
     </div>
   </section>
 
-  <!-- Services Preview Section -->
-  <section class="section">
+  <!-- About Section -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="section-header">
-        <h2>Core Services</h2>
-        <p>Comprehensive financial solutions tailored to your needs</p>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--space-3xl);">
+        <p style="text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-accent); margin-bottom: var(--space-md); font-weight: var(--font-weight-bold);">Licensed financial professional</p>
+        <h2>GoldenLeaf Financials LLC</h2>
+        <p style="color: var(--color-text-light);">Guiding individuals and business owners through smarter wealth decisions with licensed advice, modern planning, and hands-on support.</p>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>Financial Health Optimization</h3>
-          <p>Maximize your existing financial strength</p>
-          <ul class="service-benefits">
-            <li>Comprehensive financial audit</li>
-            <li>Budget optimization</li>
-            <li>Expense reduction strategies</li>
-          </ul>
-          <div class="service-outcome">
-            ✓ Increase savings & financial efficiency
-          </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">Protect Your Assets</h3>
+          <p>We review your financial picture, identify risks, and implement protection strategies that keep your family and business secure.</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">💰</div>
-          <h3>Business & Personal Funding</h3>
-          <p>Access capital for growth opportunities</p>
-          <ul class="service-benefits">
-            <li>Small business loans</li>
-            <li>Personal credit lines</li>
-            <li>Investment capital access</li>
-          </ul>
-          <div class="service-outcome">
-            ✓ Unlock growth capital & opportunities
-          </div>
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">Fix What Matters</h3>
+          <p>We help clients protect what they have, fix what’s broken, and build the next chapter of their financial life with clear strategies and practical advice.</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">🚀</div>
-          <h3>Long-Term Wealth Planning</h3>
-          <p>Build lasting wealth and security</p>
-          <ul class="service-benefits">
-            <li>Retirement planning</li>
-            <li>Investment portfolio management</li>
-            <li>Generational wealth building</li>
-          </ul>
-          <div class="service-outcome">
-            ✓ Secure your financial future
-          </div>
+        <div class="card">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">Build Lasting Wealth</h3>
+          <p>We design tailored investment and planning solutions that support your goals and deliver momentum for the long term.</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: var(--space-2xl);">
-        <a href="services.html" class="btn btn-primary btn-lg">View All Services</a>
+      <!-- Leadership Highlight -->
+      <div style="margin-top: var(--space-3xl);">
+        <div class="section-header">
+          <h2>Led by licensed professional Anita Gadiya</h2>
+          <p>Experienced leadership with a clear focus on client outcomes.</p>
+        </div>
+
+        <div class="grid grid-2" style="align-items: center; gap: var(--space-3xl);">
+          <div class="card" style="background: linear-gradient(180deg, rgba(16,185,129,0.1), rgba(255,255,255,0.09)); border: 1px solid rgba(16,185,129,0.12);">
+            <h3 style="margin-bottom: var(--space-md);">Anita Gadiya</h3>
+            <p style="margin-bottom: var(--space-lg); color: var(--color-text-light);">Founder & CEO</p>
+            <p>With deep financial experience, Anita leads GoldenLeaf Financials with a commitment to licensed, client-first advice. She focuses on helping families, professionals, and business owners move from uncertainty to confidence.</p>
+          </div>
+
+          <div>
+            <div style="display: grid; gap: var(--space-lg);">
+              <div class="card" style="border-left: 4px solid var(--color-secondary);">
+                <h4 style="margin-bottom: var(--space-sm); color: var(--color-secondary);">Our Promise</h4>
+                <p>Transparent guidance, actionable plans, and responsive support from professionals who are invested in your success.</p>
+              </div>
+              <div class="card" style="border-left: 4px solid var(--color-accent);">
+                <h4 style="margin-bottom: var(--space-sm); color: var(--color-accent);">Licensed Advising</h4>
+                <p>Our team consists of licensed financial professionals who deliver trusted, compliant recommendations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How We Work -->
+      <div style="margin-top: var(--space-3xl);">
+        <div class="section-header">
+          <h2>How We Work</h2>
+          <p>Focused service built around your needs.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-md);">Evidence-Based Advice</h3>
+            <p>We use data, market insight, and disciplined planning to recommend actions you can trust.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-md);">Practical Implementation</h3>
+            <p>Our focus is on solutions you can actually execute, not just theory.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-md);">Long-Term Focus</h3>
+            <p>We build plans designed to grow with you, not just win the next quarter.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Results & Metrics Section -->
-  <section class="section" style="background-color: var(--color-bg-light);">
+  <!-- Core Services Section -->
+  <section class="section" id="services" style="background-color: var(--color-bg-light);">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--space-3xl);">
+        <h2>Our Core Services</h2>
+        <p style="color: var(--color-text-light);">We provide comprehensive financial advisory services customized to your unique situation and goals. Contact us to learn more about how we can help you succeed.</p>
+      </div>
+
+      <div class="responsive-2col-grid">
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">📋 Financial Planning</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Comprehensive analysis and personalized strategies for savings optimization. We create clear roadmaps to help you achieve your financial goals.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">⚖️ Estate Planning (Wills & Trust)</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">One of the most important responsibilities you can complete for your family, bringing clarity, protection, and peace of mind. Where your wishes are secured and safeguarded.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🎯 Retirement Planning</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Strategic planning for 401(k) optimization. We ensure you have the income you need throughout retirement.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">💰 Tax Optimization</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Tax strategies that are tailored to your unique financial needs and will help diversify your tax risk.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🏥 Long-Term Care</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Long-term care planning doesn't have to be uncertain. We provide tailored plans to safeguard your wealth and secure your future care without draining your savings.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">📚 Kids Education Planning</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">College planning made simple. We create personalized strategies to ease the burden of education costs.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section" id="products">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--space-3xl);">
+        <h2>Our Financial Products</h2>
+        <p style="color: var(--color-text-light);">We offer a comprehensive range of financial products and solutions tailored to every stage of your financial journey. Discover which products align with your goals by scheduling a consultation.</p>
+      </div>
+
+      <div class="responsive-2col-grid">
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">📈 Investment Portfolios</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Diversified portfolios tailored to your risk tolerance featuring stocks, bonds, ETFs, and alternative investments. We optimize your allocation and rebalance regularly to keep you on track.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🏖️ Retirement Solutions</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">401(k) rollovers, IRA management, and Roth conversions for comprehensive retirement income planning. We help ensure a comfortable retirement lifestyle with strategic optimization.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🛡️ Insurance Protection</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Life, disability, and long-term care insurance solutions to protect your family's financial security. We help preserve your wealth legacy for future generations.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🏛️ Estate Planning</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Trusts, wills, and advanced estate planning strategies to minimize taxes and ensure smooth wealth transfer. We help protect your legacy and family's financial future.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🎓 Education Funding</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">529 plans, Coverdell ESAs, and education funding strategies to secure your children's educational future. We help you save for education without compromising retirement.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-2xl); box-shadow: var(--shadow-md); border-left: 4px solid var(--color-secondary);">
+          <h3 style="color: var(--color-secondary); margin-bottom: var(--space-lg);">🏢 Alternative Investments</h3>
+          <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.6;">Access to private equity, REITs, commodities, and alternative investments for portfolio diversification. We provide institutional-quality options for enhanced returns.</p>
+          <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section" id="team" style="background-color: var(--color-bg-light);">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--space-3xl);">
+        <h2>Dedicated to Your Financial Success</h2>
+        <p style="color: var(--color-text-light); font-size: var(--font-size-base);">
+          Our team brings decades of combined experience in financial planning, wealth management, and strategic advisory services. We're here to guide you toward your financial goals.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member-card">
+          <div class="team-member-photo">👩‍💼</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Anita Gadiya</h3>
+            <p class="team-member-title">CEO & Founder</p>
+            <p class="team-member-description">
+              Anita brings extensive expertise in financial management and wealth building strategies. With a passion for empowering individuals to achieve financial independence, she leads GoldenLeaf Financials with a commitment to transparency, results-driven solutions, and personalized guidance.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-512-784-0626" class="team-member-button">📞 Call</a>
+              <a href="mailto:gadiyaneeta@gmail.com" class="team-member-button">✉️ Email</a>
+              <a href="#contact" class="team-member-button">🔗 Connect</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-member-photo">👨‍💼</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Abhishek Shrivastava</h3>
+            <p class="team-member-title">Advisory Board Member</p>
+            <p class="team-member-description">
+              Abhishek is a visionary leader and entrepreneur with a proven track record in building and scaling financial services organizations. He specializes in developing high-performing teams and driving business growth.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-800-123-4567" class="team-member-button">📞 Call</a>
+              <a href="mailto:abhishek@goldenleaf.app" class="team-member-button">✉️ Email</a>
+              <a href="#contact" class="team-member-button">🔗 Connect</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member-card">
+          <div class="team-member-photo">👨‍⚖️</div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Amareesh Agrawal</h3>
+            <p class="team-member-title">Regional Managing Director</p>
+            <p class="team-member-description">
+              Amareesh brings extensive expertise in financial planning and wealth management, helping individuals and families achieve long-term financial freedom through strategic investment and retirement planning.
+            </p>
+            <div class="team-member-buttons">
+              <a href="tel:+1-800-123-4567" class="team-member-button">📞 Call</a>
+              <a href="mailto:amareesh@goldenleaf.app" class="team-member-button">✉️ Email</a>
+              <a href="#contact" class="team-member-button">🔗 Connect</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Our Team is Different -->
+      <div style="margin-top: var(--space-3xl);">
+        <div class="section-header">
+          <h2>Why Our Team is Different</h2>
+          <p>We combine expertise, integrity, and personalized service</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🎓 Expertise</h3>
+            <p style="color: var(--color-text-light);">Decades of combined experience in financial planning, investment management, and wealth building strategies.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🤝 Integrity</h3>
+            <p style="color: var(--color-text-light);">We prioritize your interests above all else, providing transparent advice and honest guidance every step of the way.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">💡 Innovation</h3>
+            <p style="color: var(--color-text-light);">We stay ahead of market trends and leverage the latest tools and strategies to optimize your financial outcomes.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🎯 Results-Focused</h3>
+            <p style="color: var(--color-text-light);">Every recommendation is tied to your specific goals and financial situation, ensuring maximum relevance and impact.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">🌟 Client-Centric</h3>
+            <p style="color: var(--color-text-light);">Your success is our success. We're committed to your long-term financial wellbeing and growth.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="color: var(--color-secondary); margin-bottom: var(--space-md);">📈 Proactive</h3>
+            <p style="color: var(--color-text-light);">We anticipate changes in your life and market conditions, adjusting strategies to keep you on track.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics / Trust Section -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
         <h2>Why Our Clients Trust Us</h2>
@@ -207,20 +622,8 @@
     </div>
   </section>
 
-  <!-- Strong CTA Section -->
-  <section class="cta-section section">
-    <div class="container">
-      <h2 style="color: white;">The Best Time is Now</h2>
-      <p>The best time to fix or protect your finances was yesterday.<br />The next best time is today.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-secondary btn-lg">Get Your Game Plan</a>
-        <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">Schedule a Call</a>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ Section -->
-  <section class="section">
+  <section class="section" id="faq" style="background-color: var(--color-bg-light);">
     <div class="container">
       <div class="section-header">
         <h2>Frequently Asked Questions</h2>
@@ -228,6 +631,15 @@
       </div>
 
       <div style="max-width: 800px; margin: 0 auto; display: grid; gap: var(--space-lg);">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: var(--font-weight-semibold); font-size: var(--font-size-lg); cursor: pointer;">
+            What's included in the free consultation?
+          </summary>
+          <p style="margin-top: var(--space-md); color: var(--color-text-light);">
+            During your complimentary 45-minute consultation, we'll review your current financial situation, discuss your goals, and explain how our services can help you achieve them. There's no obligation to move forward.
+          </p>
+        </details>
+
         <details class="card" style="cursor: pointer;">
           <summary style="font-weight: var(--font-weight-semibold); font-size: var(--font-size-lg); cursor: pointer;">
             How long does financial improvement typically take?
@@ -242,7 +654,7 @@
             Is there an upfront cost?
           </summary>
           <p style="margin-top: var(--space-md); color: var(--color-text-light);">
-            No. Our initial consultation is completely free. We only get paid when you see real results with our premium services.
+            No. Our initial consultation is completely free. We discuss all options transparently before moving forward with any service.
           </p>
         </details>
 
@@ -276,12 +688,113 @@
     </div>
   </section>
 
+  <!-- CTA Banner -->
+  <section class="cta-section section">
+    <div class="container">
+      <h2 style="color: white;">The Best Time is Now</h2>
+      <p>The best time to fix or protect your finances was yesterday.<br />The next best time is today.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-secondary btn-lg">Get Your Game Plan</a>
+        <a href="#contact" class="btn btn-outline btn-lg" style="border-color: white; color: white;">Schedule a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container contact-page">
+      <div style="text-align: center; margin-bottom: var(--space-3xl);">
+        <p style="text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-secondary); margin-bottom: var(--space-sm); font-weight: var(--font-weight-bold);">Schedule Your Free Consultation</p>
+        <h2>Contact GoldenLeaf Financials</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <div class="contact-info-panel">
+            <div>
+              <h3 style="margin-bottom: var(--space-xl);">Get in Touch</h3>
+            </div>
+
+            <div style="margin-bottom: var(--space-xl);">
+              <h4 style="margin-bottom: var(--space-md); color: var(--color-secondary);">📞 Phone</h4>
+              <p style="margin-bottom: var(--space-sm); color: var(--color-text); font-weight: var(--font-weight-semibold);">Speak with our professionals</p>
+              <p><a href="tel:+1-512-784-0626" style="color: var(--color-text); text-decoration: none; font-weight: var(--font-weight-bold);">+1 (512) 784-0626</a></p>
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">Mon-Fri: 8AM - 6PM CST</p>
+            </div>
+
+            <div style="margin-bottom: var(--space-xl);">
+              <h4 style="margin-bottom: var(--space-md); color: var(--color-secondary);">✉️ Email</h4>
+              <p style="margin-bottom: var(--space-sm); color: var(--color-text); font-weight: var(--font-weight-semibold);">Send us a message</p>
+              <p><a href="mailto:gadiyaneeta@gmail.com" style="color: var(--color-text); text-decoration: none; font-weight: var(--font-weight-bold);">gadiyaneeta@gmail.com</a></p>
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">We respond within 24 hours</p>
+            </div>
+
+            <div style="background-color: var(--color-bg-light); padding: var(--space-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent);">
+              <h4 style="margin-bottom: var(--space-sm);">💡 First Consultation is Free</h4>
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">No obligation. No hidden fees. Just honest advice about your financial situation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <h3 style="margin-bottom: var(--space-sm);">Schedule Your Free Consultation</h3>
+            <p style="margin-bottom: var(--space-lg); color: var(--color-text-light);">Take the first step towards financial success. Our expert professionals are here to help you achieve your goals.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="required">First Name</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="required">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="required">Email Address</label>
+              <input type="email" id="contactEmail" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone">Phone Number</label>
+              <input type="tel" id="contactPhone" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="primaryInterest">Areas of Interest <span style="font-size: 0.9rem; color: var(--color-text-light);">(optional)</span></label>
+              <select id="primaryInterest" name="primaryInterest" style="cursor: pointer;">
+                <option value="" disabled selected hidden>Select Primary Interest</option>
+                <option value="financial-planning">Financial Planning</option>
+                <option value="investment-management">Investment Management</option>
+                <option value="retirement-planning">Retirement Planning</option>
+                <option value="tax-optimization">Tax Optimization</option>
+                <option value="risk-management">Risk Management</option>
+                <option value="wealth-building">Wealth Building</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="required">Tell Us About Your Goals</label>
+              <textarea id="message" name="message" placeholder="Tell us about your financial goals and how we can help you achieve them..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+
+            <div id="contactMessage" style="text-align: center; margin-top: var(--space-lg);"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer Component -->
   <div id="footer-component"></div>
 
   <!-- JavaScript -->
   <script type="module">
-    // Load header and footer dynamically
     fetch('src/components/Header.html')
       .then((res) => res.text())
       .then((html) => {
@@ -293,6 +806,61 @@
       .then((html) => {
         document.getElementById('footer-component').innerHTML = html;
       });
+
+    const form = document.getElementById('contactForm');
+    const messageContainer = document.getElementById('contactMessage');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        messageContainer.innerHTML = '';
+
+        const formData = {
+          'First Name': document.getElementById('firstName').value,
+          'Last Name': document.getElementById('lastName').value,
+          Email: document.getElementById('contactEmail').value,
+          Phone: document.getElementById('contactPhone').value,
+          'Areas of Interest': document.getElementById('primaryInterest').value,
+          Message: document.getElementById('message').value
+        };
+
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/gadiyaneeta@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+            messageContainer.innerHTML = `
+              <div style="background-color: #d4edda; color: #155724; padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid #c3e6cb; margin-top: 15px; font-weight: bold;">
+                ✓ Form Submitted! We will get back to you within 24 hours.
+              </div>`;
+            form.reset();
+          } else {
+            throw new Error('Server returned error status');
+          }
+        } catch (error) {
+          console.error('Submission error:', error);
+          messageContainer.innerHTML = `
+            <div style="background-color: #f8d7da; color: #721c24; padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid #f5c6cb; margin-top: 15px;">
+              ⚠ There was an error submitting your message. Please try again or email us directly.
+            </div>`;
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+    }
   </script>
 </body>
 </html>
