@@ -2,23 +2,12 @@
 <header id="header">
   <div class="container">
     <div class="header-content">
-      <a href="index.html" class="logo">
+      <a href="#home" class="logo">
         <img src="src/assets/logo.jpeg" alt="GoldenLeaf Financials logo" class="logo-icon" />
         <span>GoldenLeaf Financials</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
       <nav id="navList" class="nav-list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#contact" class="nav-cta btn btn-sm btn-secondary">Get Started</a></li>
       </nav>
     </div>
@@ -26,26 +15,11 @@
 </header>
 
 <script>
-  // Mobile menu toggle
-  document.getElementById('menuToggle')?.addEventListener('click', function () {
-    this.classList.toggle('active');
-    document.getElementById('navList').classList.toggle('active');
-  });
-
-  // Close menu when link is clicked
+  // Smooth close / interaction handlers if needed
   document.querySelectorAll('.nav-list a').forEach((link) => {
     link.addEventListener('click', () => {
       document.getElementById('menuToggle')?.classList.remove('active');
       document.getElementById('navList')?.classList.remove('active');
     });
-  });
-
-  // Set active nav link (Compatible with local dev & GitHub Pages)
-  const currentFilename = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-list a').forEach((link) => {
-    const linkFilename = link.getAttribute('href');
-    if (linkFilename === currentFilename || (currentFilename === '' && linkFilename === 'index.html')) {
-      link.classList.add('active');
-    }
   });
 </script>
